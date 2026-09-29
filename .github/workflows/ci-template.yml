@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r ./app/requirements.txt
       - name: Run unit tests
-        run: pytest -q
+        run: PYTHONPATH=. pytest -q
 
   build:
     needs: unit-tests
@@ -63,4 +63,4 @@ jobs:
       - name: Simulate deploy
         run: |
           chmod +x ./deploy.sh || true
-          ./deploy.sh staging ${{ github.sha }}
+          ./app/deploy.sh staging ${{ github.sha }}
