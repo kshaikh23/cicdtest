@@ -17,4 +17,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Deploy to staging
-        run: ./app/deploy.sh staging
+        run: bash ./app/deploy.sh staging
